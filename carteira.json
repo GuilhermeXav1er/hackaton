@@ -1,0 +1,22 @@
+{
+  "cliente_id": "BTG-78901",
+  "nome_cliente": "Ana Silva",
+  "saldo_conta_corrente": 24000.0,
+  "carteira_investimentos": [
+    {
+      "ticker": "TESOURO_SELIC_2029",
+      "descricao": "Tesouro Selic 2029",
+      "valor_aplicado": 10000.0
+    },
+    {
+      "ticker": "CDB_BTG_DI",
+      "descricao": "CDB Pós-Fixado BTG 105% CDI",
+      "valor_aplicado": 500.0
+    },
+    {
+      "ticker": "TESOURO_SELIC_2029",
+      "descricao": "Tesouro Selic 2029",
+      "valor_aplicado": 500.0
+    }
+  ]
+}
