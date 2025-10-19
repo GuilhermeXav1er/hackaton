@@ -15,35 +15,68 @@ st.title("🤖 Agente de Investimentos BTG")
 st.caption("Converse para consultar sua carteira ou realizar um investimento.")
 
 # --- 2. DEFINIÇÃO DAS FERRAMENTAS ---
+
 funcoes_disponiveis = {
     "consultar_carteira": simulador_carteira.consultar_carteira,
     "comprar_ativo": simulador_carteira.comprar_ativo,
+    "vender_ativo": simulador_carteira.vender_ativo, # <-- 1. ADICIONADO AQUI
 }
+
 ferramentas_para_ia = [
-    { "function_declarations": [
-        { "name": "consultar_carteira", "description": "Obtém a carteira e o saldo do cliente." },
-        { "name": "comprar_ativo", "description": "Executa a compra de um ativo.",
-          "parameters": { "type": "object", "properties": {
-              "ticker": {"type": "string"}, "valor": {"type": "number"}
-          }, "required": ["ticker", "valor"] }}
-    ]}
+    {
+        "function_declarations": [
+            {
+                "name": "consultar_carteira",
+                "description": "Obtém a carteira de investimentos e o saldo em conta do cliente."
+            },
+            {
+                "name": "comprar_ativo",
+                "description": "Executa a compra de um ativo financeiro para o cliente.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "ticker": {"type": "string", "description": "O código (ticker) EXATO do ativo a ser comprado."},
+                        "valor": {"type": "number", "description": "O montante financeiro em reais a ser investido."}
+                    },
+                    "required": ["ticker", "valor"]
+                }
+            },
+            # --- 2. NOVA FERRAMENTA ADICIONADA AQUI ---
+            {
+                "name": "vender_ativo",
+                "description": "Executa a venda ou resgate de um ativo financeiro que o cliente possui em carteira.",
+                "parameters": {
+                    "type": "object",
+                    "properties": {
+                        "ticker": {"type": "string", "description": "O código (ticker) EXATO do ativo a ser vendido."},
+                        "valor": {"type": "number", "description": "O montante financeiro em reais a ser resgatado/vendido."}
+                    },
+                    "required": ["ticker", "valor"]
+                }
+            }
+        ]
+    }
 ]
 
 # --- 3. GERENCIAMENTO DA CONVERSA ---
+# (O resto do arquivo continua exatamente igual)
+
 CATALOGO_DE_PRODUTOS = """
-- Ticker: CDB_BTG_DI, Descrição: CDB Pós-Fixado BTG 105% CDI.
-- Ticker: LCI_BTG_360, Descrição: LCI BTG 1 ano 98% CDI.
-- Ticker: TESOURO_SELIC_2029, Descrição: Tesouro Selic 2029.
-- Ticker: FUNDO_ACOES_BTG_ABSOLUTO, Descrição: Fundo de Ações BTG Pactual Absoluto.
+- Ticker: CDB_BTG_DI, Descrição: CDB Pós-Fixado BTG 105% CDI. Ideal para reserva de emergência.
+- Ticker: LCI_BTG_360, Descrição: LCI BTG 1 ano 98% CDI. Isento de Imposto de Renda, para metas de curto prazo.
+- Ticker: TESOURO_SELIC_2029, Descrição: Tesouro Selic 2029. O investimento mais seguro do país.
+- Ticker: FUNDO_ACOES_BTG_ABSOLUTO, Descrição: Fundo de Ações BTG Pactual Absoluto. Para investidores arrojados.
 """
+
 PROMPT_SISTEMA = f"""Você é um assistente virtual do banco BTG Pactual. Sua personalidade é profissional, eficiente e segura. 
-Sua principal função é ajudar clientes a consultar suas carteiras e a realizar investimentos de forma transacional, inclusive por comandos de voz.
+Sua principal função é ajudar clientes a consultar suas carteiras e a realizar investimentos de forma transacional.
 
 REGRAS RÍGIDAS:
 1.  Você SÓ PODE oferecer e operar os produtos do catálogo abaixo. Use o Ticker exato fornecido.
 2.  Se o cliente pedir um produto que não está na lista, informe educadamente que o ativo não está disponível e sugira uma alternativa do catálogo.
 3.  Para executar uma compra, você OBRIGATORIAMENTE precisa do ticker e do valor. Se o cliente não fornecer, faça perguntas para obter as informações.
-4.  Após executar uma ferramenta com sucesso (como 'comprar_ativo'), formule uma resposta clara e amigável para o cliente em português, resumindo o resultado da operação (ex: "Pronto! Investimento de R$500,00 no CDB_BTG_DI realizado com sucesso.").
+4.  Sempre antes de concluir uma transação, confirme o produto e o valor e só efetue se o cliente aprovar.
+5.  Não permita que o cliente venda todos os seus ativos de uma vez. Ele pode vender tudo, mas deve ser um ativo por vez.
 
 CATÁLOGO DE PRODUTOS DISPONÍVEIS:
 {CATALOGO_DE_PRODUTOS}
@@ -96,15 +129,13 @@ for message in st.session_state.chat.history:
                 st.markdown("🎤 _Comando de voz enviado_")
 
 st.markdown("---")
-prompt_usuario = st.chat_input("Digite sua operação aqui...")
+prompt_usuario = st.chat_input("Qual operação deseja realizar?")
 uploaded_audio_file = st.file_uploader(
     "Ou envie um arquivo de áudio com seu comando:", 
-    type=["wav", "mp3", "m4a"],
-    key="audio_uploader" # A chave é importante para o controle de estado
+    type=["wav", "mp3", "m4a"]
 )
 
 if uploaded_audio_file is not None and uploaded_audio_file.file_id != st.session_state.processed_id:
-    st.audio(uploaded_audio_file)
     audio_bytes = uploaded_audio_file.getvalue()
     audio_mime_type = uploaded_audio_file.type
     prompt_contexto_audio = "Execute o comando de voz do cliente a seguir usando as ferramentas disponíveis. Se faltar alguma informação (como o ticker de um ativo), faça uma pergunta para obter os detalhes."
@@ -120,9 +151,6 @@ if uploaded_audio_file is not None and uploaded_audio_file.file_id != st.session
             )
             st.markdown(resposta_ia)
             st.session_state.processed_id = uploaded_audio_file.file_id
-            
-            # AJUSTE FINAL: Limpa o estado do uploader e recarrega a página
-            st.session_state.audio_uploader = None
             st.rerun()
 
 elif prompt_usuario and prompt_usuario != st.session_state.processed_id:
