@@ -1,21 +1,7 @@
 {
   "cliente_id": "BTG-78901",
   "nome_cliente": "Ana Silva",
-  "saldo_conta_corrente": 18438.77,
-  "carteira_investimentos": [
-    {
-      "ticker": "VULC3",
-      "descricao": "ETF ou FII VULCABRAS S.A.",
-      "quantidade": 2,
-      "preco_unitario": 20.41,
-      "valor_total": 40.82
-    },
-    {
-      "ticker": "VULC3",
-      "descricao": "ETF ou FII VULCABRAS S.A.",
-      "quantidade": 1,
-      "preco_unitario": 20.41,
-      "valor_total": 20.41
-    }
-  ]
+  "perfil_investidor": "Moderado",
+  "saldo_conta_corrente": 20000.0,
+  "carteira_investimentos": []
 }
