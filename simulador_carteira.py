@@ -4,12 +4,21 @@ from typing import Dict, Any
 # Define o nome do arquivo que funcionará como nosso "banco de dados"
 CARTEIRA_FILE = "carteira.json"
 
-# --- Catálogo de Produtos Válidos ---
+with open("catalogo_final.json", "r", encoding="utf-8") as f:
+    ativos = json.load(f)
+# --- Catálogo de Produtos Válidos (Validação de Segurança no Backend) ---
 PRODUTOS_VALIDOS = {
-    "CDB_BTG_DI": "CDB Pós-Fixado BTG 105% CDI",
-    "LCI_BTG_360": "LCI BTG 1 ano 98% CDI",
-    "TESOURO_SELIC_2029": "Tesouro Selic 2029",
-    "FUNDO_ACOES_BTG_ABSOLUTO": "Fundo de Ações BTG Pactual Absoluto"
+    "renda_fixa": [
+        {"ticker": "CDB_BTG_DI", "descricao": "CDB Pós-Fixado BTG 105% CDI. Ideal para reserva de emergência."},
+        {"ticker": "LCI_BTG_360", "descricao": "LCI BTG 1 ano 98% CDI. Isento de IR, para metas de curto prazo."},
+        {"ticker": "TESOURO_SELIC_2029", "descricao": "Tesouro Selic 2029. O investimento mais seguro do país."}
+    ],
+    "fundos": [
+        {"ticker": "FUNDO_RF_BTG", "descricao": "Fundo de Renda Fixa BTG. Focado em títulos públicos e CDBs."},
+        {"ticker": "FUNDO_MM_BTG", "descricao": "Fundo Multimercado BTG. Mistura renda fixa, ações e câmbio."},
+        {"ticker": "FUNDO_ACOES_BTG_ABSOLUTO", "descricao": "Fundo de Ações BTG Pactual Absoluto. Para investidores arrojados."}
+    ],
+    "renda_variavel": ativos
 }
 
 def _carregar_dados() -> Dict[str, Any]:
@@ -30,51 +39,59 @@ def consultar_carteira() -> str:
     dados = _carregar_dados()
     return json.dumps(dados)
 
-def comprar_ativo(ticker: str, valor: float) -> str:
-    """
-    Compra um valor específico de um ativo, consolidando com posições existentes.
-    """
-    ticker_upper = ticker.upper()
-    if ticker_upper not in PRODUTOS_VALIDOS:
-        resultado = {"status": "erro", "mensagem": f"O ativo '{ticker}' não foi encontrado."}
-        return json.dumps(resultado)
+def _buscar_produto(ticker: str):
+    for categoria, produtos in PRODUTOS_VALIDOS.items():
+        for p in produtos:
+            if p["ticker"].upper() == ticker.upper():
+                return p
+    return None
 
-    dados = _carregar_dados()
-    
-    if dados["saldo_conta_corrente"] < valor:
-        resultado = {"status": "erro", "mensagem": "Saldo em conta corrente insuficiente."}
-        return json.dumps(resultado)
-        
-    dados["saldo_conta_corrente"] -= valor
-    
-    # --- LÓGICA DE CONSOLIDAÇÃO NA COMPRA ---
-    ativo_existente = None
-    for ativo in dados["carteira_investimentos"]:
-        if ativo["ticker"] == ticker_upper:
-            ativo_existente = ativo
-            break
-    
-    if ativo_existente:
-        # Se o ativo já existe, apenas soma o valor
-        ativo_existente["valor_aplicado"] += valor
+def comprar_ativo(ticker: str, valor: float = None, quantidade: int = None):
+    produto = _buscar_produto(ticker)
+    if not produto:
+        return {"status": "erro", "mensagem": f"Ticker {ticker} não encontrado"}
+
+    preco_unitario = float(str(produto.get("Preco", "0")).replace(",", "."))
+
+    # Se passou quantidade, calcula custo
+    if quantidade is not None:
+        try:
+            quantidade = int(quantidade)
+        except ValueError:
+            return {"status": "erro", "mensagem": "Quantidade inválida, informe um número inteiro."}
+        custo_total = quantidade * preco_unitario
+    elif valor is not None:
+        try:
+            valor = float(valor)
+        except ValueError:
+            return json.dumps({"status": "erro", "mensagem": "Valor inválido, informe um número válido."})
     else:
-        # Se não existe, cria um novo
-        novo_ativo = {
-            "ticker": ticker_upper,
-            "descricao": PRODUTOS_VALIDOS[ticker_upper],
-            "valor_aplicado": valor
-        }
-        dados["carteira_investimentos"].append(novo_ativo)
-    # --- FIM DA LÓGICA DE CONSOLIDAÇÃO ---
-    
+        return {"status": "erro", "mensagem": "É necessário informar valor ou quantidade"}
+
+    # Verifica saldo
+    dados = _carregar_dados()
+    if dados["saldo_conta_corrente"] < custo_total:
+        return {"status": "erro", "mensagem": "Saldo insuficiente"}
+
+    # Atualiza carteira
+    dados["saldo_conta_corrente"] -= custo_total
+    dados["carteira_investimentos"].append({
+        "ticker": ticker,
+        "descricao": produto["descricao"],
+        "quantidade": quantidade,
+        "preco_unitario": preco_unitario,
+        "valor_total": custo_total
+    })
     _salvar_dados(dados)
-    
-    resultado = {
-        "status": "sucesso", 
-        "mensagem": f"Investimento de R${valor:.2f} em '{PRODUTOS_VALIDOS[ticker_upper]}' realizado com sucesso!",
+    if quantidade is not None:
+        return {"status": "sucesso", "mensagem": f"Compra de {quantidade}x {ticker} realizada com sucesso!"}
+
+
+    return json.dumps({
+        "status": "sucesso",
+        "mensagem": f"Investimento de R${valor:.2f} em '{produto['descricao']}' realizado com sucesso!",
         "novo_saldo_cc": f"R${dados['saldo_conta_corrente']:.2f}"
-    }
-    return json.dumps(resultado)
+    })
 
 def vender_ativo(ticker: str, valor: float) -> str:
     """

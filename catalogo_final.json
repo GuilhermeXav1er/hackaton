@@ -1,0 +1,582 @@
+[
+    {
+        "ticker": "ASAI3",
+        "descricao": "ETF ou FII SENDAS DISTRIBUIDORA S.A.",
+        "Preco": "0,08"
+    },
+    {
+        "ticker": "TOTS3",
+        "descricao": "ETF ou FII TOTVS S.A.",
+        "Preco": "0,41"
+    },
+    {
+        "ticker": "LREN3",
+        "descricao": "ETF ou FII LOJAS RENNER S.A.",
+        "Preco": "0,14"
+    },
+    {
+        "ticker": "MGLU3",
+        "descricao": "ETF ou FII MAGAZINE LUIZA S.A.",
+        "Preco": "0,08"
+    },
+    {
+        "ticker": "MOTV3",
+        "descricao": "ETF ou FII MOTIVA INFRAESTRUTURA DE MOBILIDADE S.A.",
+        "Preco": "0,14"
+    },
+    {
+        "ticker": "ABEV3",
+        "descricao": "ETF ou FII AMBEV S.A.",
+        "Preco": "0,12"
+    },
+    {
+        "ticker": "ITUB4",
+        "descricao": "ETF ou FII ITAU UNIBANCO HOLDING S.A.",
+        "Preco": "0,37"
+    },
+    {
+        "ticker": "PSSA3",
+        "descricao": "ETF ou FII PORTO SEGURO S.A.",
+        "Preco": "0,46"
+    },
+    {
+        "ticker": "VALE3",
+        "descricao": "ETF ou FII VALE S.A.",
+        "Preco": "0,6"
+    },
+    {
+        "ticker": "VBBR3",
+        "descricao": "ETF ou FII VIBRA ENERGIA S.A.",
+        "Preco": "0,23"
+    },
+    {
+        "ticker": "EMBR3",
+        "descricao": "ETF ou FII EMBRAER S.A.",
+        "Preco": "0,81"
+    },
+    {
+        "ticker": "EQTL3",
+        "descricao": "ETF ou FII EQUATORIAL S.A.",
+        "Preco": "0,36"
+    },
+    {
+        "ticker": "ITSA4",
+        "descricao": "ETF ou FII ITAUSA S.A.",
+        "Preco": "0,11"
+    },
+    {
+        "ticker": "RAIL3",
+        "descricao": "ETF ou FII RUMO S.A.",
+        "Preco": "0,15"
+    },
+    {
+        "ticker": "SBSP3",
+        "descricao": "ETF ou FII CIA SANEAMENTO BASICO EST SAO PAULO",
+        "Preco": "1,29"
+    },
+    {
+        "ticker": "SUZB3",
+        "descricao": "ETF ou FII SUZANO S.A.",
+        "Preco": "0,48"
+    },
+    {
+        "ticker": "UGPA3",
+        "descricao": "ETF ou FII ULTRAPAR PARTICIPACOES S.A.",
+        "Preco": "0,21"
+    },
+    {
+        "ticker": "BBSE3",
+        "descricao": "ETF ou FII BB SEGURIDADE PARTICIPAÇÕES S.A.",
+        "Preco": "0,32"
+    },
+    {
+        "ticker": "BRAV3",
+        "descricao": "ETF ou FII BRAVA ENERGIA S.A.",
+        "Preco": "0,15"
+    },
+    {
+        "ticker": "CYRE3",
+        "descricao": "ETF ou FII CYRELA BRAZIL REALTY S.A.EMPREEND E PART",
+        "Preco": "0,29"
+    },
+    {
+        "ticker": "HAPV3",
+        "descricao": "ETF ou FII HAPVIDA PARTICIPACOES E INVESTIMENTOS SA",
+        "Preco": "0,33"
+    },
+    {
+        "ticker": "RDOR3",
+        "descricao": "ETF ou FII REDE DOR SÃO LUIZ S.A.",
+        "Preco": "0,41"
+    },
+    {
+        "ticker": "VIVT3",
+        "descricao": "ETF ou FII TELEFÔNICA BRASIL S.A",
+        "Preco": "0,33"
+    },
+    {
+        "ticker": "BBDC4",
+        "descricao": "ETF ou FII BCO BRADESCO S.A.",
+        "Preco": "0,18"
+    },
+    {
+        "ticker": "CMIG4",
+        "descricao": "ETF ou FII CIA ENERGETICA DE MINAS GERAIS - CEMIG",
+        "Preco": "0,11"
+    },
+    {
+        "ticker": "CPLE6",
+        "descricao": "ETF ou FII CIA PARANAENSE DE ENERGIA - COPEL",
+        "Preco": "0,13"
+    },
+    {
+        "ticker": "ENEV3",
+        "descricao": "ETF ou FII ENEVA S.A",
+        "Preco": "0,17"
+    },
+    {
+        "ticker": "GGBR4",
+        "descricao": "ETF ou FII GERDAU S.A.",
+        "Preco": "0,18"
+    },
+    {
+        "ticker": "PETR3",
+        "descricao": "ETF ou FII PETROLEO BRASILEIRO S.A. PETROBRAS",
+        "Preco": "0,32"
+    },
+    {
+        "ticker": "PETR4",
+        "descricao": "ETF ou FII PETROLEO BRASILEIRO S.A. PETROBRAS",
+        "Preco": "0,3"
+    },
+    {
+        "ticker": "RADL3",
+        "descricao": "ETF ou FII RAIA DROGASIL S.A.",
+        "Preco": "0,2"
+    },
+    {
+        "ticker": "RENT3",
+        "descricao": "ETF ou FII LOCALIZA RENT A CAR S.A.",
+        "Preco": "0,37"
+    },
+    {
+        "ticker": "B3SA3",
+        "descricao": "ETF ou FII B3 S.A. - BRASIL, BOLSA, BALCÃO",
+        "Preco": "0,13"
+    },
+    {
+        "ticker": "BBAS3",
+        "descricao": "ETF ou FII BCO BRASIL S.A.",
+        "Preco": "0,21"
+    },
+    {
+        "ticker": "ELET3",
+        "descricao": "ETF ou FII CENTRAIS ELET BRAS S.A. - ELETROBRAS",
+        "Preco": "0,55"
+    },
+    {
+        "ticker": "MBRF3",
+        "descricao": "ETF ou FII MARFRIG GLOBAL FOODS S.A.",
+        "Preco": "0,16"
+    },
+    {
+        "ticker": "TIMS3",
+        "descricao": "ETF ou FII TIM S.A.",
+        "Preco": "0,24"
+    },
+    {
+        "ticker": "WEGE3",
+        "descricao": "ETF ou FII WEG S.A.",
+        "Preco": "0,4"
+    },
+    {
+        "ticker": "PRIO3",
+        "descricao": "ETF ou FII PRIO S.A.",
+        "Preco": "0,36"
+    },
+    {
+        "ticker": "CSAN3",
+        "descricao": "ETF ou FII COSAN S.A.",
+        "Preco": "0,07"
+    },
+    {
+        "ticker": "ALOS3",
+        "descricao": "ETF ou FII ALLOS S.A",
+        "Preco": "1,2"
+    },
+    {
+        "ticker": "BBDC3",
+        "descricao": "ETF ou FII BCO BRADESCO S.A.",
+        "Preco": "0,75"
+    },
+    {
+        "ticker": "CSMG3",
+        "descricao": "ETF ou FII CIA SANEAMENTO DE MINAS GERAIS-COPASA MG",
+        "Preco": "1,79"
+    },
+    {
+        "ticker": "MULT3",
+        "descricao": "ETF ou FII MULTIPLAN - EMPREEND IMOBILIARIOS S.A.",
+        "Preco": "1,36"
+    },
+    {
+        "ticker": "NATU3",
+        "descricao": "ETF ou FII NATURA COSMETICOS S.A.",
+        "Preco": "0,41"
+    },
+    {
+        "ticker": "SMFT3",
+        "descricao": "ETF ou FII SMARTFIT ESCOLA DE GINÁSTICA E DANÇA S.A.",
+        "Preco": "1,25"
+    },
+    {
+        "ticker": "COGN3",
+        "descricao": "ETF ou FII COGNA EDUCAÇÃO S.A.",
+        "Preco": "0,16"
+    },
+    {
+        "ticker": "AZZA3",
+        "descricao": "ETF ou FII AZZAS 2154 S.A.",
+        "Preco": "1,66"
+    },
+    {
+        "ticker": "BEEF3",
+        "descricao": "ETF ou FII MINERVA S.A.",
+        "Preco": "0,45"
+    },
+    {
+        "ticker": "CEAB3",
+        "descricao": "ETF ou FII CEA MODAS S.A.",
+        "Preco": "1,11"
+    },
+    {
+        "ticker": "CSNA3",
+        "descricao": "ETF ou FII CIA SIDERURGICA NACIONAL",
+        "Preco": "0,56"
+    },
+    {
+        "ticker": "CURY3",
+        "descricao": "ETF ou FII CURY CONSTRUTORA E INCORPORADORA S.A.",
+        "Preco": "2,09"
+    },
+    {
+        "ticker": "CXSE3",
+        "descricao": "ETF ou FII CAIXA SEGURIDADE PARTICIPAÇÕES S.A.",
+        "Preco": "0,98"
+    },
+    {
+        "ticker": "DIRR3",
+        "descricao": "ETF ou FII DIRECIONAL ENGENHARIA S.A.",
+        "Preco": "1"
+    },
+    {
+        "ticker": "ELET6",
+        "descricao": "ETF ou FII CENTRAIS ELET BRAS S.A. - ELETROBRAS",
+        "Preco": "3,82"
+    },
+    {
+        "ticker": "HYPE3",
+        "descricao": "ETF ou FII HYPERA S.A.",
+        "Preco": "1,46"
+    },
+    {
+        "ticker": "MRVE3",
+        "descricao": "ETF ou FII MRV ENGENHARIA E PARTICIPACOES S.A.",
+        "Preco": "0,43"
+    },
+    {
+        "ticker": "POMO4",
+        "descricao": "ETF ou FII MARCOPOLO S.A.",
+        "Preco": "0,57"
+    },
+    {
+        "ticker": "USIM5",
+        "descricao": "ETF ou FII USINAS SID DE MINAS GERAIS S.A.-USIMINAS",
+        "Preco": "0,32"
+    },
+    {
+        "ticker": "VIVA3",
+        "descricao": "ETF ou FII VIVARA PARTICIPAÇOES S.A",
+        "Preco": "1,92"
+    },
+    {
+        "ticker": "AURE3",
+        "descricao": "ETF ou FII AUREN ENERGIA S.A.",
+        "Preco": "1,09"
+    },
+    {
+        "ticker": "BRAP4",
+        "descricao": "ETF ou FII BRADESPAR S.A.",
+        "Preco": "1,72"
+    },
+    {
+        "ticker": "CPFE3",
+        "descricao": "ETF ou FII CPFL ENERGIA S.A.",
+        "Preco": "3,95"
+    },
+    {
+        "ticker": "CPLE3",
+        "descricao": "ETF ou FII CIA PARANAENSE DE ENERGIA - COPEL",
+        "Preco": "1,22"
+    },
+    {
+        "ticker": "EGIE3",
+        "descricao": "ETF ou FII ENGIE BRASIL ENERGIA S.A.",
+        "Preco": "4,01"
+    },
+    {
+        "ticker": "FLRY3",
+        "descricao": "ETF ou FII FLEURY S.A.",
+        "Preco": "1,56"
+    },
+    {
+        "ticker": "GGPS3",
+        "descricao": "ETF ou FII GPS PARTICIPACOES E EMPREENDIMENTOS S.A.",
+        "Preco": "1,87"
+    },
+    {
+        "ticker": "GOAU4",
+        "descricao": "ETF ou FII METALURGICA GERDAU S.A.",
+        "Preco": "1,03"
+    },
+    {
+        "ticker": "ISAE4",
+        "descricao": "ETF ou FII ISA ENERGIA BRASIL S.A",
+        "Preco": "2,42"
+    },
+    {
+        "ticker": "PCAR3",
+        "descricao": "ETF ou FII CIA BRASILEIRA DE DISTRIBUICAO",
+        "Preco": "0,37"
+    },
+    {
+        "ticker": "SRNA3",
+        "descricao": "ETF ou FII SERENA ENERGIA S.A.",
+        "Preco": "1,25"
+    },
+    {
+        "ticker": "TEND3",
+        "descricao": "ETF ou FII CONSTRUTORA TENDA S.A.",
+        "Preco": "2,34"
+    },
+    {
+        "ticker": "YDUQ3",
+        "descricao": "ETF ou FII YDUQS PARTICIPACOES S.A.",
+        "Preco": "1,2"
+    },
+    {
+        "ticker": "ANIM3",
+        "descricao": "ETF ou FII ANIMA HOLDING S.A.",
+        "Preco": "0,61"
+    },
+    {
+        "ticker": "AZUL4",
+        "descricao": "ETF ou FII AZUL S.A.",
+        "Preco": "0,24"
+    },
+    {
+        "ticker": "BHIA3",
+        "descricao": "ETF ou FII GRUPO CASAS BAHIA S.A.",
+        "Preco": "0,62"
+    },
+    {
+        "ticker": "BRKM5",
+        "descricao": "ETF ou FII BRASKEM S.A.",
+        "Preco": "1,25"
+    },
+    {
+        "ticker": "CBAV3",
+        "descricao": "ETF ou FII COMPANHIA BRASILEIRA DE ALUMÍNIO",
+        "Preco": "1,01"
+    },
+    {
+        "ticker": "CMIN3",
+        "descricao": "ETF ou FII CSN MINERAÇÃO S.A.",
+        "Preco": "1,12"
+    },
+    {
+        "ticker": "CVCB3",
+        "descricao": "ETF ou FII CVC BRASIL OPERADORA E AGÊNCIA DE VIAGENS S.A.",
+        "Preco": "0,33"
+    },
+    {
+        "ticker": "ECOR3",
+        "descricao": "ETF ou FII ECORODOVIAS INFRAESTRUTURA E LOGÍSTICA S.A.",
+        "Preco": "1,53"
+    },
+    {
+        "ticker": "GMAT3",
+        "descricao": "ETF ou FII GRUPO MATEUS S.A.",
+        "Preco": "1,24"
+    },
+    {
+        "ticker": "INTB3",
+        "descricao": "ETF ou FII INTELBRAS S.A. IND DE TELEC ELETRONICA BRASILEIRA",
+        "Preco": "2,22"
+    },
+    {
+        "ticker": "IRBR3",
+        "descricao": "ETF ou FII IRB - BRASIL RESSEGUROS S.A.",
+        "Preco": "9,25"
+    },
+    {
+        "ticker": "LWSA3",
+        "descricao": "ETF ou FII LWSA S.A.",
+        "Preco": "0,8"
+    },
+    {
+        "ticker": "MOVI3",
+        "descricao": "ETF ou FII MOVIDA PARTICIPACOES SA",
+        "Preco": "1,49"
+    },
+    {
+        "ticker": "NEOE3",
+        "descricao": "ETF ou FII NEOENERGIA S.A.",
+        "Preco": "5,84"
+    },
+    {
+        "ticker": "ODPV3",
+        "descricao": "ETF ou FII ODONTOPREV S.A.",
+        "Preco": "2,66"
+    },
+    {
+        "ticker": "ORVR3",
+        "descricao": "ETF ou FII ORIZON VALORIZACAO DE RESIDUOS S.A.",
+        "Preco": "10,88"
+    },
+    {
+        "ticker": "PETZ3",
+        "descricao": "ETF ou FII PET CENTER COMERCIO  E PARTICIPACOES S.A.",
+        "Preco": "0,73"
+    },
+    {
+        "ticker": "RAPT4",
+        "descricao": "ETF ou FII RANDONCORP S.A.",
+        "Preco": "1,16"
+    },
+    {
+        "ticker": "RECV3",
+        "descricao": "ETF ou FII PETRORECÔNCAVO S.A.",
+        "Preco": "2,47"
+    },
+    {
+        "ticker": "SBFG3",
+        "descricao": "ETF ou FII GRUPO SBF SA",
+        "Preco": "2,42"
+    },
+    {
+        "ticker": "SIMH3",
+        "descricao": "ETF ou FII SIMPAR S.A.",
+        "Preco": "0,84"
+    },
+    {
+        "ticker": "SLCE3",
+        "descricao": "ETF ou FII SLC AGRICOLA S.A.",
+        "Preco": "3,15"
+    },
+    {
+        "ticker": "SMTO3",
+        "descricao": "ETF ou FII SAO MARTINHO S.A.",
+        "Preco": "3,04"
+    },
+    {
+        "ticker": "RAIZ4",
+        "descricao": "ETF ou FII RAIZEN S.A.",
+        "Preco": "0,19"
+    },
+    {
+        "ticker": "ABCB4",
+        "descricao": "ETF ou FII BCO ABC BRASIL S.A.",
+        "Preco": "21,38"
+    },
+    {
+        "ticker": "ALPA4",
+        "descricao": "ETF ou FII ALPARGATAS S.A.",
+        "Preco": "9,86"
+    },
+    {
+        "ticker": "BPAN4",
+        "descricao": "ETF ou FII BCO PAN S.A.",
+        "Preco": "9,8"
+    },
+    {
+        "ticker": "BRSR6",
+        "descricao": "ETF ou FII BCO ESTADO DO RIO GRANDE DO SUL S.A.",
+        "Preco": "11,98"
+    },
+    {
+        "ticker": "DXCO3",
+        "descricao": "ETF ou FII DEXCO S.A.",
+        "Preco": "5,17"
+    },
+    {
+        "ticker": "EZTC3",
+        "descricao": "ETF ou FII EZ TEC EMPREEND. E PARTICIPACOES S.A.",
+        "Preco": "15,84"
+    },
+    {
+        "ticker": "FRAS3",
+        "descricao": "ETF ou FII FRAS-LE S.A.",
+        "Preco": "22,55"
+    },
+    {
+        "ticker": "GRND3",
+        "descricao": "ETF ou FII GRENDENE S.A.",
+        "Preco": "5,1"
+    },
+    {
+        "ticker": "HBSA3",
+        "descricao": "ETF ou FII HIDROVIAS DO BRASIL S.A.",
+        "Preco": "3,96"
+    },
+    {
+        "ticker": "ITUB3",
+        "descricao": "ETF ou FII ITAU UNIBANCO HOLDING S.A.",
+        "Preco": "33,31"
+    },
+    {
+        "ticker": "JHSF3",
+        "descricao": "ETF ou FII JHSF PARTICIPACOES S.A.",
+        "Preco": "6"
+    },
+    {
+        "ticker": "MDIA3",
+        "descricao": "ETF ou FII M.DIAS BRANCO S.A. IND COM DE ALIMENTOS",
+        "Preco": "29,11"
+    },
+    {
+        "ticker": "MDNE3",
+        "descricao": "ETF ou FII MOURA DUBEUX ENGENHARIA S/A",
+        "Preco": "26,57"
+    },
+    {
+        "ticker": "MYPK3",
+        "descricao": "ETF ou FII IOCHPE MAXION S.A.",
+        "Preco": "10,74"
+    },
+    {
+        "ticker": "ONCO3",
+        "descricao": "ETF ou FII ONCOCLINICAS DO BRASIL SERVICOS MEDICOS  S.A.",
+        "Preco": "2,16"
+    },
+    {
+        "ticker": "PLPL3",
+        "descricao": "ETF ou FII PLANO & PLANO DESENVOLVIMENTO IMOBILIÁRIO S.A.",
+        "Preco": "14,75"
+    },
+    {
+        "ticker": "PORT3",
+        "descricao": "ETF ou FII WILSON SONS S.A.",
+        "Preco": "18,42"
+    },
+    {
+        "ticker": "UNIP6",
+        "descricao": "ETF ou FII UNIPAR CARBOCLORO S.A.",
+        "Preco": "73,21"
+    },
+    {
+        "ticker": "VULC3",
+        "descricao": "ETF ou FII VULCABRAS S.A.",
+        "Preco": "20,41"
+    }
+]

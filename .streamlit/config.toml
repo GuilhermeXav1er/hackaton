@@ -1,0 +1,15 @@
+[theme]
+# Cor primária de destaque (azul BTG)
+primaryColor="rgba(0, 67, 88, 1)"
+
+# Cor de fundo principal (branco)
+backgroundColor="#0B2859"
+
+# Cor de fundo da sidebar (um cinza bem claro para dar contraste)
+secondaryBackgroundColor="#7a96cfff"
+
+# Cor do texto (preto)
+textColor="#ffffffff"
+
+# Fonte padrão
+font="sans serif"

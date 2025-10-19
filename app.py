@@ -29,19 +29,25 @@ ferramentas_para_ia = [
                 "name": "consultar_carteira",
                 "description": "Obtém a carteira de investimentos e o saldo em conta do cliente."
             },
-            {
+    {
                 "name": "comprar_ativo",
-                "description": "Executa a compra de um ativo financeiro para o cliente.",
+                "description": (
+                    "Executa a compra de um ativo financeiro para o cliente. "
+                    "Pode ser feito de duas formas: "
+                    "1) especificando o valor total em reais a investir, "
+                    "2) especificando a quantidade de unidades (ações, cotas, moedas). "
+                    "Exemplo: {\"ticker\": \"ITUB4\", \"quantidade\": 10} ou {\"ticker\": \"VALE3\", \"valor\": 500}"
+                ),
                 "parameters": {
                     "type": "object",
                     "properties": {
-                        "ticker": {"type": "string", "description": "O código (ticker) EXATO do ativo a ser comprado."},
-                        "valor": {"type": "number", "description": "O montante financeiro em reais a ser investido."}
+                        "ticker": {"type": "string", "description": "O ticker do ativo (ex: PETR4, VALE3)."},
+                        "valor": {"type": "number", "description": "Valor em reais a ser investido."},
+                        "quantidade": {"type": "integer", "description": "Quantidade de unidades a serem compradas."}
                     },
-                    "required": ["ticker", "valor"]
+                    "required": ["ticker"]
                 }
             },
-            # --- 2. NOVA FERRAMENTA ADICIONADA AQUI ---
             {
                 "name": "vender_ativo",
                 "description": "Executa a venda ou resgate de um ativo financeiro que o cliente possui em carteira.",
@@ -61,12 +67,22 @@ ferramentas_para_ia = [
 # --- 3. GERENCIAMENTO DA CONVERSA ---
 # (O resto do arquivo continua exatamente igual)
 
-CATALOGO_DE_PRODUTOS = """
-- Ticker: CDB_BTG_DI, Descrição: CDB Pós-Fixado BTG 105% CDI. Ideal para reserva de emergência.
-- Ticker: LCI_BTG_360, Descrição: LCI BTG 1 ano 98% CDI. Isento de Imposto de Renda, para metas de curto prazo.
-- Ticker: TESOURO_SELIC_2029, Descrição: Tesouro Selic 2029. O investimento mais seguro do país.
-- Ticker: FUNDO_ACOES_BTG_ABSOLUTO, Descrição: Fundo de Ações BTG Pactual Absoluto. Para investidores arrojados.
-"""
+with open("catalogo_final.json", "r", encoding="utf-8") as f:
+    ativos = json.load(f)
+
+CATALOGO_DE_PRODUTOS = {
+    "renda_fixa": [
+        {"ticker": "CDB_BTG_DI", "descricao": "CDB Pós-Fixado BTG 105% CDI. Ideal para reserva de emergência."},
+        {"ticker": "LCI_BTG_360", "descricao": "LCI BTG 1 ano 98% CDI. Isento de IR, para metas de curto prazo."},
+        {"ticker": "TESOURO_SELIC_2029", "descricao": "Tesouro Selic 2029. O investimento mais seguro do país."}
+    ],
+    "fundos": [
+        {"ticker": "FUNDO_RF_BTG", "descricao": "Fundo de Renda Fixa BTG. Focado em títulos públicos e CDBs."},
+        {"ticker": "FUNDO_MM_BTG", "descricao": "Fundo Multimercado BTG. Mistura renda fixa, ações e câmbio."},
+        {"ticker": "FUNDO_ACOES_BTG_ABSOLUTO", "descricao": "Fundo de Ações BTG Pactual Absoluto. Para investidores arrojados."}
+    ],
+    "renda_variavel": ativos
+}
 
 PROMPT_SISTEMA = f"""Você é um assistente virtual do banco BTG Pactual. Sua personalidade é profissional, eficiente e segura. 
 Sua principal função é ajudar clientes a consultar suas carteiras e a realizar investimentos de forma transacional.
@@ -74,9 +90,10 @@ Sua principal função é ajudar clientes a consultar suas carteiras e a realiza
 REGRAS RÍGIDAS:
 1.  Você SÓ PODE oferecer e operar os produtos do catálogo abaixo. Use o Ticker exato fornecido.
 2.  Se o cliente pedir um produto que não está na lista, informe educadamente que o ativo não está disponível e sugira uma alternativa do catálogo.
-3.  Para executar uma compra, você OBRIGATORIAMENTE precisa do ticker e do valor. Se o cliente não fornecer, faça perguntas para obter as informações.
-4.  Sempre antes de concluir uma transação, confirme o produto e o valor e só efetue se o cliente aprovar.
-5.  Não permita que o cliente venda todos os seus ativos de uma vez. Ele pode vender tudo, mas deve ser um ativo por vez.
+3.  Para executar uma compra de Fundo ou de Renda Fixa, você OBRIGATORIAMENTE precisa do ticker e do valor. Se o cliente não fornecer, faça perguntas para obter as informações.
+4.  Para executar uma compra de Renda Variavel, você OBRIGATORIAMENTE precisa do ticker e da quantidade de ações. Se o cliente não fornecer, faça perguntas para obter as informações.
+5.  Sempre antes de concluir uma transação, confirme o produto e o valor e só efetue se o cliente aprovar.
+6.  Não permita que o cliente venda todos os seus ativos de uma vez. Ele pode vender tudo, mas deve ser um ativo por vez.
 
 CATÁLOGO DE PRODUTOS DISPONÍVEIS:
 {CATALOGO_DE_PRODUTOS}
